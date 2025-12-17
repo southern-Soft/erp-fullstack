@@ -1,0 +1,2271 @@
+\documentclass[12pt,a4paper]{article}
+
+% Page geometry and margins
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+
+% Font encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Font settings
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% Spacing
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% Colors
+\usepackage{xcolor}
+\definecolor{blue}{RGB}{0,102,204}
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{gray}{RGB}{128,128,128}
+
+% Hyperlinks
+\usepackage[colorlinks=true, linkcolor=darkblue, urlcolor=blue, citecolor=blue]{hyperref}
+\hypersetup{
+    pdftitle={Southern Apparels ERP System - Complete Documentation},
+    pdfauthor={ERP System Documentation},
+    pdfsubject={ERP System Documentation},
+    pdfkeywords={ERP, FastAPI, Next.js, Documentation}
+}
+
+% Section formatting
+\usepackage{titlesec}
+\titleformat{\section}
+    {\Large\bfseries\color{darkblue}}
+    {\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+\titleformat{\subsection}
+    {\large\bfseries\color{darkblue}}
+    {\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+
+\titleformat{\subsubsection}
+    {\normalsize\bfseries\color{darkblue}}
+    {\thesubsubsection}{1em}{}
+\titlespacing*{\subsubsection}{0pt}{8pt}{3pt}
+
+% Table of contents
+\usepackage{tocloft}
+\renewcommand{\cftsecfont}{\bfseries\color{darkblue}}
+\renewcommand{\cftsubsecfont}{\color{gray}}
+
+% Code listings
+\usepackage{listings}
+\usepackage{inconsolata}
+
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    breakatwhitespace=true,
+    frame=single,
+    framesep=3pt,
+    rulecolor=\color{gray!30},
+    backgroundcolor=\color{gray!5},
+    commentstyle=\color{gray},
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    tabsize=2,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    captionpos=b,
+    extendedchars=true,
+    inputencoding=utf8
+}
+
+% Python style
+\lstdefinestyle{python}{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    breakatwhitespace=true,
+    frame=single,
+    framesep=3pt,
+    rulecolor=\color{gray!30},
+    backgroundcolor=\color{gray!5},
+    commentstyle=\color{gray},
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    tabsize=2,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    captionpos=b,
+    extendedchars=true,
+    inputencoding=utf8,
+    morekeywords={def,class,from,import,return,if,else,elif,for,while,True,False,None,async,await,Depends,Session,BaseModel,Column,Integer,String,ForeignKey,relationship}
+}
+
+% TypeScript/JavaScript style
+\lstdefinestyle{typescript}{
+    language=Java,
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    breakatwhitespace=true,
+    frame=single,
+    framesep=3pt,
+    rulecolor=\color{gray!30},
+    backgroundcolor=\color{gray!5},
+    commentstyle=\color{gray},
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    tabsize=2,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    captionpos=b,
+    extendedchars=true,
+    inputencoding=utf8,
+    morekeywords={const,let,var,function,async,await,export,import,interface,type,class,extends,implements,useState,useEffect,useContext,default}
+}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+
+% Lists
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*, topsep=3pt, itemsep=2pt}
+\setlist[enumerate]{leftmargin=*, topsep=3pt, itemsep=2pt}
+
+% Graphics (for diagrams if needed)
+\usepackage{graphicx}
+
+% Page breaks
+\usepackage{afterpage}
+
+% Header and footer
+\usepackage{fancyhdr}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{gray}{\small Southern Apparels ERP System}}
+\fancyhead[R]{\textcolor{gray}{\small Documentation}}
+\fancyfoot[C]{\textcolor{gray}{\thepage}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Title page
+\title{
+    \vspace{-2cm}
+    {\Huge\bfseries\color{darkblue} Southern Apparels ERP System}\\[0.5cm]
+    {\Large Complete Documentation}\\[0.3cm]
+    \rule{\textwidth}{1pt}
+}
+\author{}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\vspace{1cm}
+
+\begin{center}
+\textit{Comprehensive guide to understanding, developing, and maintaining the ERP system}\\[0.5cm]
+Version 1.0.0
+\end{center}
+
+\newpage
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+
+\section{System Overview}
+
+This is a \textbf{Ready-Made Garment (RMG) ERP System} built for Southern Apparels and Holdings. It manages:
+
+\begin{itemize}
+    \item \textbf{Client Information} (Buyers, Suppliers, Contacts, Shipping, Banking)
+    \item \textbf{Sample Department} (Styles, Variants, Materials, Samples, Operations, SMV)
+    \item \textbf{Order Management} (Orders, Production Planning, Inventory, Reports)
+    \item \textbf{User Management} (Authentication, Permissions, Department Access)
+\end{itemize}
+
+\subsection{Key Features}
+
+\begin{itemize}
+    \item User authentication with JWT tokens
+    \item Role-based access control (department permissions)
+    \item RESTful API backend
+    \item Modern React frontend with Next.js
+    \item PostgreSQL database
+    \item Docker containerization
+    \item Redis caching for performance
+    \item Optimized for 200-250+ concurrent users
+\end{itemize}
+
+\section{Architecture Overview}
+
+\subsection{High-Level Architecture}
+
+The system follows a three-tier architecture:
+
+\begin{enumerate}
+    \item \textbf{Presentation Layer}: Next.js frontend (Port 3000)
+    \item \textbf{Application Layer}: FastAPI backend (Port 8000)
+    \item \textbf{Data Layer}: PostgreSQL database (Port 5432)
+\end{enumerate}
+
+\subsection{How Data Flows}
+
+\begin{enumerate}
+    \item \textbf{User Action} $\rightarrow$ User clicks a button in the frontend
+    \item \textbf{Frontend API Call} $\rightarrow$ Frontend calls \texttt{api.buyers.getAll()} from \texttt{lib/api.ts}
+    \item \textbf{Next.js Proxy} $\rightarrow$ Request goes to \texttt{/api/v1/buyers} which proxies to backend
+    \item \textbf{Backend Route} $\rightarrow$ FastAPI route handler processes the request
+    \item \textbf{Database Query} $\rightarrow$ SQLAlchemy queries PostgreSQL
+    \item \textbf{Response} $\rightarrow$ Data flows back through the same path
+    \item \textbf{UI Update} $\rightarrow$ React components re-render with new data
+\end{enumerate}
+
+\section{Technology Stack}
+
+\subsection{Backend}
+
+\begin{itemize}
+    \item \textbf{FastAPI} -- Modern Python web framework
+    \item \textbf{SQLAlchemy} -- Database ORM (Object-Relational Mapping)
+    \item \textbf{PostgreSQL} -- Relational database
+    \item \textbf{Redis} -- Caching layer
+    \item \textbf{JWT} -- Authentication tokens
+    \item \textbf{Pydantic} -- Data validation
+\end{itemize}
+
+\subsection{Frontend}
+
+\begin{itemize}
+    \item \textbf{Next.js 15} -- React framework with server-side rendering
+    \item \textbf{React 19} -- UI library
+    \item \textbf{TypeScript} -- Type-safe JavaScript
+    \item \textbf{Tailwind CSS} -- Styling
+    \item \textbf{shadcn/ui} -- UI component library
+    \item \textbf{Zustand} -- State management (if needed)
+\end{itemize}
+
+\subsection{Infrastructure}
+
+\begin{itemize}
+    \item \textbf{Docker} -- Containerization
+    \item \textbf{Docker Compose} -- Multi-container orchestration
+\end{itemize}
+
+\section{Project Structure}
+
+The project is organized into two main directories:
+
+\subsection{Backend Structure}
+
+\begin{verbatim}
+backend/
++-- core/                   # Core utilities
+|   +-- config.py          # Settings & configuration
+|   +-- database.py        # Database connection
+|   +-- security.py        # Password hashing, JWT tokens
+|   +-- logging.py          # Logging setup
+|   +-- cache.py           # Redis caching
++-- modules/                # Feature modules
+|   +-- auth/              # Authentication
+|   +-- clients/           # Client management
+|   +-- samples/           # Sample department
+|   +-- orders/            # Order management
+|   +-- materials/         # Material management
+|   +-- users/             # User management
++-- main.py                # FastAPI app entry point
++-- init_data.py           # Initial admin user creation
+\end{verbatim}
+
+\subsection{Frontend Structure}
+
+\begin{verbatim}
+frontend/
++-- app/                    # Next.js App Router
+|   +-- api/               # API proxy routes
+|   +-- dashboard/         # Main application
+|   |   +-- (authenticated)/ # Protected routes
+|   |   +-- (public)/      # Public routes
+|   +-- layout.tsx         # Root layout
++-- components/            # Reusable React components
+|   +-- ui/               # shadcn/ui components
+|   +-- layout/           # Layout components
+|   +-- shared/           # Shared utilities
++-- lib/                   # Utility functions
+|   +-- api.ts            # API client functions
+|   +-- auth-context.tsx  # Authentication context
+|   +-- utils.ts          # Helper functions
++-- middleware.ts          # Route protection
+\end{verbatim}
+
+\section{How Everything Connects}
+
+\subsection{Database Connection}
+
+\textbf{Location}: \texttt{backend/core/database.py}
+
+The database connection is established using SQLAlchemy:
+
+\begin{lstlisting}[style=python, caption=Database Connection Setup]
+# Creates database engine
+engine = create_engine(
+    settings.DATABASE_URL,  # postgresql://user:pass@host:port/dbname
+    pool_size=100,          # Connection pool
+    max_overflow=100
+)
+
+# Creates session factory
+SessionLocal = sessionmaker(bind=engine)
+
+# Dependency for routes
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db  # Provides database session
+    finally:
+        db.close()  # Closes after request
+\end{lstlisting}
+
+\textbf{How it works}:
+\begin{itemize}
+    \item On startup, \texttt{main.py} calls \texttt{init\_db()} which creates all tables
+    \item Each API route uses \texttt{db: Session = Depends(get\_db)} to get a database session
+    \item SQLAlchemy models (like \texttt{User}, \texttt{Buyer}) map to database tables
+\end{itemize}
+
+\subsection{Frontend-Backend Connection}
+
+The connection follows these steps:
+
+\begin{enumerate}
+    \item \textbf{Frontend makes API call}:
+    \begin{lstlisting}[style=typescript]
+// frontend/lib/api.ts
+export const api = {
+  buyers: {
+    getAll: async () => {
+      const response = await fetch('/api/v1/buyers');
+      return response.json();
+    }
+  }
+}
+    \end{lstlisting}
+    
+    \item \textbf{Next.js API route proxies to backend}:
+    \begin{lstlisting}[style=typescript]
+// frontend/app/api/v1/[...path]/route.ts
+const BACKEND_URL = 'http://backend:8000';  // Docker service name
+
+export async function GET(request, { params }) {
+  const targetUrl = `${BACKEND_URL}/api/v1/${path.join('/')}`;
+  const response = await fetch(targetUrl);
+  return response;  // Forward response to frontend
+}
+    \end{lstlisting}
+    
+    \item \textbf{Backend processes request}:
+    \begin{lstlisting}[style=python]
+# backend/modules/clients/routes/buyers.py
+@router.get("/buyers")
+def get_buyers(db: Session = Depends(get_db)):
+    buyers = db.query(Buyer).all()
+    return buyers
+    \end{lstlisting}
+    
+    \item \textbf{Response flows back}: Backend $\rightarrow$ Next.js proxy $\rightarrow$ Frontend $\rightarrow$ React component updates
+\end{enumerate}
+
+\subsection{Authentication Flow}
+
+\begin{enumerate}
+    \item \textbf{User logs in} $\rightarrow$ \texttt{frontend/lib/auth-context.tsx} $\rightarrow$ \texttt{login()} function
+    \item \textbf{API call} $\rightarrow$ \texttt{POST /api/v1/auth/login} with username/password
+    \item \textbf{Backend validates} $\rightarrow$ \texttt{backend/modules/auth/routes/auth.py} $\rightarrow$ \texttt{login()} function
+    \item \textbf{JWT token created} $\rightarrow$ \texttt{backend/core/security.py} $\rightarrow$ \texttt{create\_access\_token()}
+    \item \textbf{Token stored} $\rightarrow$ localStorage + cookie (for middleware)
+    \item \textbf{Protected routes} $\rightarrow$ \texttt{frontend/middleware.ts} checks cookie
+    \item \textbf{API requests} $\rightarrow$ Include \texttt{Authorization: Bearer <token>} header
+\end{enumerate}
+
+\section{Database Structure}
+
+\subsection{Core Tables}
+
+\subsubsection{Users Table}
+
+The users table stores all system users:
+
+\begin{itemize}
+    \item \texttt{id} (Primary Key)
+    \item \texttt{username} (Unique)
+    \item \texttt{email} (Unique)
+    \item \texttt{hashed\_password}
+    \item \texttt{full\_name}
+    \item \texttt{department} (e.g., "Sample", "IE", "Planning")
+    \item \texttt{designation}
+    \item \texttt{is\_active}
+    \item \texttt{is\_superuser}
+    \item \texttt{department\_access} (JSON array) -- \texttt{["client\_info", "sample\_department"]}
+    \item \texttt{created\_at}
+    \item \texttt{updated\_at}
+\end{itemize}
+
+\subsubsection{Clients Tables}
+
+\textbf{Buyers} table contains:
+\begin{itemize}
+    \item \texttt{id}
+    \item \texttt{buyer\_name}
+    \item \texttt{company\_name}
+    \item \texttt{brand\_name}
+    \item \texttt{email}, \texttt{phone}, \texttt{website}
+    \item \texttt{head\_office\_country}
+    \item \texttt{tax\_id}
+    \item \texttt{rating}
+    \item \texttt{status}
+\end{itemize}
+
+\textbf{Suppliers} table contains:
+\begin{itemize}
+    \item \texttt{id}
+    \item \texttt{supplier\_name}
+    \item \texttt{company\_name}
+    \item \texttt{supplier\_type} (Fabric, Trims, Accessories, etc.)
+    \item \texttt{contact\_person}
+    \item \texttt{email}, \texttt{phone}, \texttt{country}
+\end{itemize}
+
+\textbf{Contact Persons} table links to buyers and suppliers:
+\begin{itemize}
+    \item \texttt{id}
+    \item \texttt{contact\_person\_name}
+    \item \texttt{company}, \texttt{department}, \texttt{designation}
+    \item \texttt{phone\_number}, \texttt{corporate\_mail}
+    \item \texttt{buyer\_id} (Foreign Key $\rightarrow$ \texttt{buyers.id})
+    \item \texttt{supplier\_id} (Foreign Key $\rightarrow$ \texttt{suppliers.id})
+\end{itemize}
+
+\subsubsection{Sample Department Tables}
+
+\textbf{Style Summaries}:
+\begin{itemize}
+    \item \texttt{id}
+    \item \texttt{buyer\_id} (Foreign Key)
+    \item \texttt{style\_name}
+    \item \texttt{style\_id} (Unique)
+    \item \texttt{product\_category}, \texttt{product\_type}
+    \item \texttt{type\_of\_construction}, \texttt{gauge}
+    \item \texttt{is\_set} (Boolean)
+    \item \texttt{set\_piece\_count}
+\end{itemize}
+
+\textbf{Style Variants}:
+\begin{itemize}
+    \item \texttt{id}
+    \item \texttt{style\_summary\_id} (Foreign Key)
+    \item \texttt{style\_name}, \texttt{style\_id}
+    \item \texttt{colour\_name}, \texttt{colour\_code}, \texttt{colour\_ref}
+    \item \texttt{is\_multicolor} (Boolean)
+    \item \texttt{sizes} (JSON array)
+    \item \texttt{piece\_name} (for sets)
+\end{itemize}
+
+\textbf{Required Materials}:
+\begin{itemize}
+    \item \texttt{id}
+    \item \texttt{style\_variant\_id} (Foreign Key)
+    \item \texttt{material} (material name)
+    \item \texttt{uom} (Unit of Measurement)
+    \item \texttt{consumption\_per\_piece}
+    \item \texttt{converted\_uom}, \texttt{converted\_consumption}
+    \item \texttt{remarks}
+\end{itemize}
+
+\textbf{Samples}:
+\begin{itemize}
+    \item \texttt{id}
+    \item \texttt{sample\_id} (Unique)
+    \item \texttt{buyer\_id} (Foreign Key)
+    \item \texttt{style\_id} (Foreign Key $\rightarrow$ \texttt{style\_summaries.id})
+    \item \texttt{sample\_type} (Proto, Fit, PP, etc.)
+    \item \texttt{worksheet\_rcv\_date}, \texttt{yarn\_rcv\_date}, \texttt{required\_date}
+    \item \texttt{color}, \texttt{assigned\_designer}
+    \item \texttt{required\_sample\_quantity}, \texttt{round}
+    \item \texttt{submit\_status}
+    \item \texttt{notes}
+\end{itemize}
+
+\subsubsection{Order Management}
+
+\textbf{Orders} table:
+\begin{itemize}
+    \item \texttt{id}
+    \item \texttt{order\_no} (Unique)
+    \item \texttt{buyer\_id} (Foreign Key)
+    \item \texttt{style\_id} (Foreign Key)
+    \item \texttt{style\_name}, \texttt{season}, \texttt{order\_category}
+    \item \texttt{sales\_contract}, \texttt{scl\_po}, \texttt{fob}
+    \item \texttt{order\_quantity}, \texttt{unit\_price}, \texttt{total\_value}
+    \item \texttt{order\_date}, \texttt{delivery\_date}, \texttt{shipment\_date}
+    \item \texttt{order\_status}
+\end{itemize}
+
+\subsection{Relationships (Foreign Keys)}
+
+The database relationships are:
+
+\begin{itemize}
+    \item \texttt{Buyer} $\rightarrow$ \texttt{ContactPerson} (one-to-many)
+    \item \texttt{Buyer} $\rightarrow$ \texttt{ShippingInfo} (one-to-many)
+    \item \texttt{Buyer} $\rightarrow$ \texttt{StyleSummary} (one-to-many)
+    \item \texttt{Buyer} $\rightarrow$ \texttt{Sample} (one-to-many)
+    \item \texttt{Buyer} $\rightarrow$ \texttt{OrderManagement} (one-to-many)
+    \item \texttt{StyleSummary} $\rightarrow$ \texttt{StyleVariant} (one-to-many)
+    \item \texttt{StyleSummary} $\rightarrow$ \texttt{Sample} (one-to-many)
+    \item \texttt{StyleSummary} $\rightarrow$ \texttt{OrderManagement} (one-to-many)
+    \item \texttt{StyleVariant} $\rightarrow$ \texttt{RequiredMaterial} (one-to-many)
+    \item \texttt{StyleVariant} $\rightarrow$ \texttt{VariantColorPart} (one-to-many)
+    \item \texttt{Sample} $\rightarrow$ \texttt{SampleOperation} (one-to-many)
+\end{itemize}
+
+\section{Understanding FastAPI - From Beginner to Advanced}
+
+\subsection{What is FastAPI?}
+
+FastAPI is a modern, fast (high-performance) web framework for building APIs with Python. Think of it as a tool that helps you create web services that can communicate with your frontend application.
+
+\textbf{Key Concepts for Beginners:}
+
+\begin{itemize}
+    \item \textbf{API (Application Programming Interface)}: A way for different software to talk to each other
+    \item \textbf{Web Framework}: A toolkit that makes building web applications easier
+    \item \textbf{RESTful API}: A standard way of organizing web services using HTTP methods (GET, POST, PUT, DELETE)
+\end{itemize}
+
+\subsection{FastAPI Basics}
+
+\subsubsection{How FastAPI Works}
+
+FastAPI follows a simple request-response pattern:
+
+\begin{enumerate}
+    \item \textbf{Client sends request} $\to$ Frontend sends HTTP request (e.g., GET /api/v1/buyers)
+    \item \textbf{FastAPI receives request} $\to$ Framework matches URL to a function
+    \item \textbf{Function executes} $\to$ Your code runs (e.g., query database)
+    \item \textbf{Response sent back} $\to$ Data is returned as JSON
+    \item \textbf{Client receives response} $\to$ Frontend gets the data
+\end{enumerate}
+
+\subsubsection{Basic FastAPI Structure}
+
+\begin{lstlisting}[style=python, caption=Basic FastAPI Application]
+from fastapi import FastAPI
+
+# Create the application
+app = FastAPI(title="My API")
+
+# Define a route (endpoint)
+@app.get("/")
+def read_root():
+    return {"message": "Hello World"}
+
+# Run with: uvicorn main:app --reload
+\end{lstlisting}
+
+\textbf{Explanation:}
+\begin{itemize}
+    \item \texttt{@app.get("/")} is a \textbf{decorator} that tells FastAPI: "When someone visits the root URL, run this function"
+    \item \texttt{/} is the URL path (root path)
+    \item The function returns a dictionary, which FastAPI automatically converts to JSON
+\end{itemize}
+
+\subsubsection{HTTP Methods Explained}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Method} & \textbf{Purpose} \\
+\midrule
+GET & Retrieve data (read-only, safe) \\
+POST & Create new data \\
+PUT & Update existing data (full update) \\
+PATCH & Partial update \\
+DELETE & Remove data \\
+\bottomrule
+\end{tabularx}
+\caption{HTTP Methods}
+\end{table}
+
+\subsection{Intermediate FastAPI Concepts}
+
+\subsubsection{Dependencies - The Power of FastAPI}
+
+Dependencies are reusable functions that FastAPI calls before your route function. They're perfect for:
+\begin{itemize}
+    \item Getting database connections
+    \item Validating authentication tokens
+    \item Checking permissions
+    \item Injecting common data
+\end{itemize}
+
+\begin{lstlisting}[style=python, caption=Using Dependencies]
+from fastapi import Depends
+
+def get_database():
+    db = SessionLocal()
+    try:
+        yield db  # Provide database to route
+    finally:
+        db.close()  # Clean up after route finishes
+
+@app.get("/buyers")
+def get_buyers(db = Depends(get_database)):
+    # FastAPI automatically calls get_database() 
+    # and passes the result as 'db'
+    return db.query(Buyer).all()
+\end{lstlisting}
+
+\textbf{Why use dependencies?}
+\begin{itemize}
+    \item \textbf{DRY (Don't Repeat Yourself)}: Write once, use everywhere
+    \item \textbf{Automatic cleanup}: Database connections are always closed
+    \item \textbf{Testability}: Easy to mock dependencies in tests
+\end{itemize}
+
+\subsubsection{Request Validation with Pydantic}
+
+Pydantic automatically validates incoming data:
+
+\begin{lstlisting}[style=python, caption=Pydantic Schema Validation]
+from pydantic import BaseModel, EmailStr
+
+class BuyerCreate(BaseModel):
+    buyer_name: str  # Required field
+    email: EmailStr  # Must be valid email
+    phone: str = None  # Optional field
+
+@app.post("/buyers")
+def create_buyer(buyer: BuyerCreate):
+    # FastAPI automatically validates the request body
+    # If invalid, returns 422 error with details
+    # If valid, 'buyer' is a validated BuyerCreate object
+    return {"message": f"Creating buyer: {buyer.buyer_name}"}
+\end{lstlisting}
+
+\textbf{What happens:}
+\begin{enumerate}
+    \item Client sends JSON: \texttt{\{"buyer\_name": "ABC Corp", "email": "invalid"\}}
+    \item Pydantic validates: Email is invalid
+    \item FastAPI returns: 422 error with validation details
+    \item Client fixes: Sends valid email
+    \item Pydantic validates: All fields valid
+    \item Function executes: Creates buyer
+\end{enumerate}
+
+\subsubsection{Query Parameters}
+
+Extract data from URL query string:
+
+\begin{lstlisting}[style=python, caption=Query Parameters]
+from fastapi import Query
+
+@app.get("/buyers")
+def get_buyers(
+    skip: int = Query(0, ge=0),  # Must be >= 0
+    limit: int = Query(100, ge=1, le=1000)  # Between 1 and 1000
+):
+    # URL: /buyers?skip=10&limit=50
+    # skip = 10, limit = 50
+    return db.query(Buyer).offset(skip).limit(limit).all()
+\end{lstlisting}
+
+\subsubsection{Path Parameters}
+
+Extract data from URL path:
+
+\begin{lstlisting}[style=python, caption=Path Parameters]
+@app.get("/buyers/{buyer_id}")
+def get_buyer(buyer_id: int):  # FastAPI converts to int
+    # URL: /buyers/123
+    # buyer_id = 123
+    return db.query(Buyer).filter(Buyer.id == buyer_id).first()
+\end{lstlisting}
+
+\subsection{Advanced FastAPI Concepts}
+
+\subsubsection{Async/Await - Handling Concurrent Requests}
+
+FastAPI supports asynchronous functions for better performance:
+
+\begin{lstlisting}[style=python, caption=Async Functions]
+import asyncio
+from fastapi import FastAPI
+
+@app.get("/slow-operation")
+async def slow_operation():
+    # While waiting for this, FastAPI can handle other requests
+    await asyncio.sleep(1)  # Simulate slow operation
+    return {"status": "done"}
+
+# FastAPI can handle 1000s of concurrent requests efficiently
+\end{lstlisting}
+
+\textbf{When to use async:}
+\begin{itemize}
+    \item I/O operations (database queries, API calls, file operations)
+    \item When you need high concurrency
+    \item For better resource utilization
+\end{itemize}
+
+\subsubsection{Middleware - Request/Response Processing}
+
+Middleware runs before and after your route functions:
+
+\begin{lstlisting}[style=python, caption=Custom Middleware]
+from fastapi import Request
+import time
+
+@app.middleware("http")
+async def add_process_time_header(request: Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = time.time() - start_time
+    response.headers["X-Process-Time"] = str(process_time)
+    return response
+\end{lstlisting}
+
+\textbf{Common middleware uses:}
+\begin{itemize}
+    \item CORS (Cross-Origin Resource Sharing)
+    \item Authentication/Authorization
+    \item Logging
+    \item Rate limiting
+    \item Request timing
+\end{itemize}
+
+\subsubsection{Exception Handling}
+
+Custom error handling for better user experience:
+
+\begin{lstlisting}[style=python, caption=Exception Handlers]
+from fastapi import HTTPException, Request
+from fastapi.responses import JSONResponse
+
+@app.exception_handler(ValueError)
+async def value_error_handler(request: Request, exc: ValueError):
+    return JSONResponse(
+        status_code=400,
+        content={"message": f"Invalid value: {str(exc)}"}
+    )
+
+@app.get("/divide/{a}/{b}")
+def divide(a: int, b: int):
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return {"result": a / b}
+\end{lstlisting}
+
+\subsubsection{Background Tasks}
+
+Execute tasks after sending response:
+
+\begin{lstlisting}[style=python, caption=Background Tasks]
+from fastapi import BackgroundTasks
+
+def send_email(email: str, message: str):
+    # Send email (takes time)
+    print(f"Sending email to {email}")
+
+@app.post("/register")
+def register(user: UserCreate, background_tasks: BackgroundTasks):
+    # Create user immediately
+    new_user = create_user(user)
+    
+    # Send welcome email in background
+    background_tasks.add_task(send_email, user.email, "Welcome!")
+    
+    return new_user  # Response sent immediately, email sent later
+\end{lstlisting}
+
+\subsection{FastAPI Best Practices}
+
+\begin{enumerate}
+    \item \textbf{Use type hints}: Helps with validation and IDE support
+    \item \textbf{Separate concerns}: Models, schemas, routes in different files
+    \item \textbf{Use dependencies}: For database, auth, etc.
+    \item \textbf{Validate everything}: Use Pydantic schemas
+    \item \textbf{Handle errors gracefully}: Custom exception handlers
+    \item \textbf{Document your API}: FastAPI auto-generates docs from your code
+    \item \textbf{Use async for I/O}: Better performance
+    \item \textbf{Keep routes simple}: Business logic in separate functions
+\end{enumerate}
+
+\section{Understanding Next.js - From Beginner to Advanced}
+
+\subsection{What is Next.js?}
+
+Next.js is a React framework that makes it easy to build web applications. Think of React as building blocks, and Next.js as the blueprint that organizes them efficiently.
+
+\textbf{Key Concepts for Beginners:}
+
+\begin{itemize}
+    \item \textbf{React}: A JavaScript library for building user interfaces
+    \item \textbf{Next.js}: A framework built on top of React with extra features
+    \item \textbf{Server-Side Rendering (SSR)}: Pages are rendered on the server before sending to browser
+    \item \textbf{Client-Side Rendering (CSR)}: Pages are rendered in the browser using JavaScript
+\end{itemize}
+
+\subsection{Next.js Basics}
+
+\subsubsection{How Next.js Works}
+
+Next.js uses a file-based routing system:
+
+\begin{verbatim}
+app/
+  page.tsx          → / (home page)
+  about/
+    page.tsx        → /about
+  dashboard/
+    page.tsx        → /dashboard
+    settings/
+      page.tsx      → /dashboard/settings
+\end{verbatim}
+
+\textbf{The folder structure = the URL structure!}
+
+\subsubsection{Basic Next.js Component}
+
+\begin{lstlisting}[style=typescript, caption=Basic Next.js Page]
+// app/page.tsx
+export default function HomePage() {
+  return (
+    <div>
+      <h1>Welcome to My App</h1>
+      <p>This is the home page</p>
+    </div>
+  );
+}
+\end{lstlisting}
+
+\textbf{Explanation:}
+\begin{itemize}
+    \item \texttt{export default} makes this the main component for this page
+    \item The function name doesn't matter (but should be descriptive)
+    \item Returns JSX (JavaScript XML) - looks like HTML but is JavaScript
+\end{itemize}
+
+\subsubsection{Client vs Server Components}
+
+\textbf{Server Components} (default):
+\begin{itemize}
+    \item Run on the server
+    \item Can access databases directly
+    \item Faster initial load
+    \item Cannot use browser APIs (useState, useEffect, etc.)
+\end{itemize}
+
+\begin{lstlisting}[style=typescript, caption=Server Component]
+// app/products/page.tsx
+// This runs on the server
+export default async function ProductsPage() {
+  // Can directly fetch from database
+  const products = await fetch('http://api/products');
+  const data = await products.json();
+  
+  return (
+    <div>
+      {data.map(product => (
+        <div key={product.id}>{product.name}</div>
+      ))}
+    </div>
+  );
+}
+\end{lstlisting}
+
+\textbf{Client Components}:
+\begin{itemize}
+    \item Run in the browser
+    \item Can use React hooks (useState, useEffect)
+    \item Can handle user interactions
+    \item Must add \texttt{"use client"} directive
+\end{itemize}
+
+\begin{lstlisting}[style=typescript, caption=Client Component]
+"use client";  // This makes it a client component
+
+import { useState } from 'react';
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+}
+\end{lstlisting}
+
+\subsection{Intermediate Next.js Concepts}
+
+\subsubsection{React Hooks - Managing State}
+
+\textbf{useState} - Store data that can change:
+
+\begin{lstlisting}[style=typescript, caption=Using useState]
+"use client";
+
+import { useState } from 'react';
+
+export default function Form() {
+  const [name, setName] = useState('');  // Initial value: empty string
+  
+  return (
+    <div>
+      <input 
+        value={name} 
+        onChange={(e) => setName(e.target.value)} 
+      />
+      <p>Hello, {name}!</p>
+    </div>
+  );
+}
+\end{lstlisting}
+
+\textbf{useEffect} - Run code when component mounts or data changes:
+
+\begin{lstlisting}[style=typescript, caption=Using useEffect]
+"use client";
+
+import { useState, useEffect } from 'react';
+
+export default function BuyersList() {
+  const [buyers, setBuyers] = useState([]);
+  
+  useEffect(() => {
+    // This runs when component first loads
+    fetch('/api/v1/buyers')
+      .then(res => res.json())
+      .then(data => setBuyers(data));
+  }, []);  // Empty array = run only once
+  
+  return (
+    <div>
+      {buyers.map(buyer => (
+        <div key={buyer.id}>{buyer.buyer_name}</div>
+      ))}
+    </div>
+  );
+}
+\end{lstlisting}
+
+\subsubsection{API Routes - Backend in Next.js}
+
+Next.js can act as a backend using API routes:
+
+\begin{lstlisting}[style=typescript, caption=Next.js API Route]
+// app/api/buyers/route.ts
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+  // This runs on the server
+  const buyers = await fetchFromDatabase();
+  return NextResponse.json(buyers);
+}
+
+export async function POST(request: Request) {
+  const data = await request.json();
+  const newBuyer = await createBuyer(data);
+  return NextResponse.json(newBuyer, { status: 201 });
+}
+\end{lstlisting}
+
+\subsubsection{Loading and Error States}
+
+Next.js provides special files for loading and errors:
+
+\begin{lstlisting}[style=typescript, caption=Loading State]
+// app/dashboard/loading.tsx
+export default function Loading() {
+  return <div>Loading...</div>;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=typescript, caption=Error State]
+// app/dashboard/error.tsx
+'use client';
+
+export default function Error({ error, reset }) {
+  return (
+    <div>
+      <h2>Something went wrong!</h2>
+      <button onClick={() => reset()}>Try again</button>
+    </div>
+  );
+}
+\end{lstlisting}
+
+\subsubsection{Layouts - Shared UI}
+
+Layouts wrap pages with common UI:
+
+\begin{lstlisting}[style=typescript, caption=Layout Component]
+// app/dashboard/layout.tsx
+export default function DashboardLayout({ children }) {
+  return (
+    <div>
+      <Sidebar />
+      <main>{children}</main>  {/* Page content goes here */}
+      <Footer />
+    </div>
+  );
+}
+\end{lstlisting}
+
+\subsection{Advanced Next.js Concepts}
+
+\subsubsection{Server Actions - Direct Database Access}
+
+Server Actions let you call server functions directly from client:
+
+\begin{lstlisting}[style=typescript, caption=Server Action]
+// app/actions.ts
+'use server';
+
+export async function createBuyer(formData: FormData) {
+  const name = formData.get('name');
+  // Direct database access
+  const buyer = await db.buyers.create({ name });
+  return buyer;
+}
+
+// In component:
+import { createBuyer } from './actions';
+
+export default function Form() {
+  return (
+    <form action={createBuyer}>
+      <input name="name" />
+      <button type="submit">Create</button>
+    </form>
+  );
+}
+\end{lstlisting}
+
+\subsubsection{Middleware - Request Interception}
+
+Middleware runs before requests are processed:
+
+\begin{lstlisting}[style=typescript, caption=Middleware]
+// middleware.ts
+import { NextResponse } from 'next/server';
+
+export function middleware(request) {
+  const token = request.cookies.get('auth_token');
+  
+  if (!token && request.nextUrl.pathname.startsWith('/dashboard')) {
+    return NextResponse.redirect(new URL('/login', request.url));
+  }
+  
+  return NextResponse.next();
+}
+\end{lstlisting}
+
+\subsubsection{Optimistic Updates}
+
+Update UI immediately, then sync with server:
+
+\begin{lstlisting}[style=typescript, caption=Optimistic Updates]
+"use client";
+
+import { useOptimistic } from 'react';
+
+export default function BuyersList({ buyers }) {
+  const [optimisticBuyers, addOptimisticBuyer] = useOptimistic(
+    buyers,
+    (state, newBuyer) => [...state, newBuyer]
+  );
+  
+  async function handleAdd(buyer) {
+    addOptimisticBuyer(buyer);  // UI updates immediately
+    await createBuyer(buyer);   // Then sync with server
+  }
+  
+  return (
+    <div>
+      {optimisticBuyers.map(buyer => (
+        <div key={buyer.id}>{buyer.name}</div>
+      ))}
+    </div>
+  );
+}
+\end{lstlisting}
+
+\subsubsection{Streaming and Suspense}
+
+Show content as it loads:
+
+\begin{lstlisting}[style=typescript, caption=Streaming with Suspense]
+import { Suspense } from 'react';
+
+export default function Page() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading buyers...</div>}>
+        <BuyersList />
+      </Suspense>
+      <Suspense fallback={<div>Loading orders...</div>}>
+        <OrdersList />
+      </Suspense>
+    </div>
+  );
+}
+\end{lstlisting}
+
+\subsection{Next.js Best Practices}
+
+\begin{enumerate}
+    \item \textbf{Use Server Components by default}: Only use Client Components when needed
+    \item \textbf{Keep components small}: One component, one responsibility
+    \item \textbf{Use TypeScript}: Catch errors before runtime
+    \item \textbf{Optimize images}: Use Next.js Image component
+    \item \textbf{Code splitting}: Next.js does this automatically
+    \item \textbf{SEO friendly}: Server-side rendering helps with SEO
+    \item \textbf{Error boundaries}: Handle errors gracefully
+    \item \textbf{Loading states}: Always show loading indicators
+\end{enumerate}
+
+\section{Backend (FastAPI) Deep Dive}
+
+\subsection{Entry Point: \texttt{backend/main.py}}
+
+This is where the FastAPI application starts:
+
+\begin{lstlisting}[style=python, caption=FastAPI Application Setup]
+app = FastAPI(title="RMG ERP System", version="1.0.0")
+
+# CORS middleware (allows frontend to call backend)
+app.add_middleware(CORSMiddleware, allow_origins=["*"])
+
+# Register all routers
+app.include_router(auth_router, prefix="/api/v1/auth")
+app.include_router(buyers_router, prefix="/api/v1/buyers")
+# ... etc
+\end{lstlisting}
+
+\textbf{On Startup}:
+\begin{enumerate}
+    \item Database tables are created (\texttt{init\_db()})
+    \item Admin user is created if it doesn't exist (\texttt{init\_sample\_data()})
+\end{enumerate}
+
+\subsection{Core Modules}
+
+\subsubsection{Configuration (\texttt{backend/core/config.py})}
+
+Stores all settings:
+\begin{itemize}
+    \item Database connection string
+    \item JWT secret key
+    \item Redis settings
+    \item CORS origins
+\end{itemize}
+
+\textbf{To change settings}: Edit this file or set environment variables.
+
+\subsubsection{Database (\texttt{backend/core/database.py})}
+
+\begin{itemize}
+    \item Creates SQLAlchemy engine
+    \item Provides \texttt{get\_db()} dependency for routes
+    \item Connection pooling (100 base + 100 overflow)
+\end{itemize}
+
+\subsubsection{Security (\texttt{backend/core/security.py})}
+
+Functions:
+\begin{itemize}
+    \item \texttt{get\_password\_hash()} -- Hashes passwords with bcrypt
+    \item \texttt{verify\_password()} -- Checks password against hash
+    \item \texttt{create\_access\_token()} -- Creates JWT token
+    \item \texttt{decode\_token()} -- Validates and decodes JWT
+\end{itemize}
+
+\subsubsection{Caching (\texttt{backend/core/cache.py})}
+
+Redis caching decorator:
+
+\begin{lstlisting}[style=python, caption=Using Cache Decorator]
+@cache_response(key_prefix="buyers", ttl=300)
+def get_buyers():
+    # This response will be cached for 5 minutes
+    return db.query(Buyer).all()
+\end{lstlisting}
+
+\subsection{Module Structure}
+
+Each module follows this pattern:
+
+\begin{verbatim}
+modules/
++-- clients/
+    +-- __init__.py          # Exports router
+    +-- models/
+    |   +-- client.py        # SQLAlchemy models (Buyer, Supplier)
+    +-- routes/
+    |   +-- buyers.py        # API endpoints
+    |   +-- suppliers.py
+    +-- schemas/
+        +-- buyer.py         # Pydantic schemas (validation)
+\end{verbatim}
+
+\subsection{Creating a New Module}
+
+\textbf{Step 1: Create model}
+
+\begin{lstlisting}[style=python, caption=Creating a Database Model]
+# backend/modules/products/models/product.py
+from core.database import Base
+from sqlalchemy import Column, Integer, String
+
+class Product(Base):
+    __tablename__ = "products"
+    id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False)
+\end{lstlisting}
+
+\textbf{Step 2: Create schema}
+
+\begin{lstlisting}[style=python, caption=Creating a Pydantic Schema]
+# backend/modules/products/schemas/product.py
+from pydantic import BaseModel
+
+class ProductCreate(BaseModel):
+    name: str
+
+class ProductResponse(BaseModel):
+    id: int
+    name: str
+\end{lstlisting}
+
+\textbf{Step 3: Create routes}
+
+\begin{lstlisting}[style=python, caption=Creating API Routes]
+# backend/modules/products/routes/products.py
+from fastapi import APIRouter, Depends
+from core import get_db
+from modules.products.models.product import Product
+from modules.products.schemas.product import ProductCreate, ProductResponse
+
+router = APIRouter()
+
+@router.get("/products", response_model=List[ProductResponse])
+def get_products(db: Session = Depends(get_db)):
+    return db.query(Product).all()
+
+@router.post("/products", response_model=ProductResponse)
+def create_product(product: ProductCreate, db: Session = Depends(get_db)):
+    new_product = Product(**product.model_dump())
+    db.add(new_product)
+    db.commit()
+    db.refresh(new_product)
+    return new_product
+\end{lstlisting}
+
+\textbf{Step 4: Register in main.py}
+
+\begin{lstlisting}[style=python, caption=Registering Router]
+from modules.products import products_router
+app.include_router(products_router, prefix="/api/v1/products")
+\end{lstlisting}
+
+\subsection{API Endpoint Structure}
+
+All endpoints follow RESTful conventions:
+
+\begin{itemize}
+    \item \texttt{GET /api/v1/buyers} -- List all buyers
+    \item \texttt{GET /api/v1/buyers/\{id\}} -- Get one buyer
+    \item \texttt{POST /api/v1/buyers} -- Create buyer
+    \item \texttt{PUT /api/v1/buyers/\{id\}} -- Update buyer
+    \item \texttt{DELETE /api/v1/buyers/\{id\}} -- Delete buyer
+\end{itemize}
+
+\subsection{Request/Response Flow}
+
+\begin{enumerate}
+    \item \textbf{Request comes in} $\rightarrow$ FastAPI receives HTTP request
+    \item \textbf{Route handler} $\rightarrow$ Matches URL to function
+    \item \textbf{Dependencies} $\rightarrow$ \texttt{get\_db()} provides database session
+    \item \textbf{Validation} $\rightarrow$ Pydantic schema validates request body
+    \item \textbf{Database query} $\rightarrow$ SQLAlchemy queries PostgreSQL
+    \item \textbf{Response} $\rightarrow$ Pydantic schema serializes response
+    \item \textbf{JSON returned} $\rightarrow$ FastAPI converts to JSON
+\end{enumerate}
+
+\section{Frontend (Next.js) Deep Dive}
+
+\subsection{Next.js App Router Structure}
+
+Next.js 13+ uses the \textbf{App Router} (not Pages Router):
+
+\begin{verbatim}
+app/
++-- layout.tsx          # Root layout (wraps everything)
++-- page.tsx            # Home page (/)
++-- dashboard/
+|   +-- layout.tsx      # Dashboard layout (sidebar + header)
+|   +-- erp/
+|       +-- buyers/
+|           +-- page.tsx # Buyers page (/dashboard/erp/buyers)
+\end{verbatim}
+
+\textbf{File-based routing}: The folder structure = URL structure.
+
+\subsection{Key Files}
+
+\subsubsection{Root Layout (\texttt{app/layout.tsx})}
+
+Wraps entire application:
+\begin{itemize}
+    \item Theme provider (dark/light mode)
+    \item Fonts
+    \item Global styles
+    \item Client providers (AuthProvider)
+\end{itemize}
+
+\subsubsection{API Proxy (\texttt{app/api/v1/[...path]/route.ts})}
+
+\textbf{What it does}: Proxies all \texttt{/api/v1/*} requests to the FastAPI backend.
+
+\textbf{Why}: 
+\begin{itemize}
+    \item Frontend runs on \texttt{localhost:3000}
+    \item Backend runs on \texttt{localhost:8000} (or \texttt{backend:8000} in Docker)
+    \item Browser can't directly call \texttt{backend:8000} (different domain)
+    \item Next.js API route acts as a proxy
+\end{itemize}
+
+\subsubsection{Middleware (\texttt{middleware.ts})}
+
+\textbf{Purpose}: Protects routes before they load.
+
+\textbf{What it does}:
+\begin{itemize}
+    \item Checks for \texttt{auth\_token} cookie
+    \item If no token and accessing protected route $\rightarrow$ redirect to login
+    \item If has token and accessing login $\rightarrow$ redirect to dashboard
+\end{itemize}
+
+\textbf{Protected routes}: All routes under \texttt{/dashboard} except \texttt{/dashboard/login}
+
+\subsubsection{API Client (\texttt{lib/api.ts})}
+
+\textbf{Purpose}: Centralized API functions.
+
+\textbf{Usage}:
+\begin{lstlisting}[style=typescript, caption=Using API Client]
+import { api } from '@/lib/api';
+
+// Get all buyers
+const buyers = await api.buyers.getAll();
+
+// Create buyer
+const newBuyer = await api.buyers.create({
+  buyer_name: "ABC Corp",
+  company_name: "ABC Corporation"
+});
+\end{lstlisting}
+
+\subsubsection{Auth Context (\texttt{lib/auth-context.tsx})}
+
+\textbf{Purpose}: Manages authentication state globally.
+
+\textbf{Provides}:
+\begin{itemize}
+    \item \texttt{user} -- Current user object
+    \item \texttt{token} -- JWT token
+    \item \texttt{login()} -- Login function
+    \item \texttt{logout()} -- Logout function
+    \item \texttt{isLoading} -- Loading state
+\end{itemize}
+
+\subsection{Component Structure}
+
+\subsubsection{Page Components}
+
+Located in \texttt{app/dashboard/(authenticated)/erp/*/page.tsx}
+
+\begin{lstlisting}[style=typescript, caption=Example Page Component]
+"use client";  // Client component (can use hooks)
+
+export default function BuyersPage() {
+  const [buyers, setBuyers] = useState([]);
+  
+  useEffect(() => {
+    // Fetch buyers on mount
+    api.buyers.getAll().then(setBuyers);
+  }, []);
+  
+  return (
+    <div>
+      {/* UI */}
+    </div>
+  );
+}
+\end{lstlisting}
+
+\subsubsection{Reusable Components}
+
+Located in \texttt{components/}
+\begin{itemize}
+    \item \texttt{components/ui/} -- shadcn/ui components (Button, Table, Dialog, etc.)
+    \item \texttt{components/layout/} -- Layout components (Sidebar, Header)
+    \item \texttt{components/shared/} -- Shared utilities
+\end{itemize}
+
+\subsection{Adding a New Page}
+
+\textbf{Step 1: Create page file}
+
+\begin{verbatim}
+// app/dashboard/(authenticated)/erp/products/page.tsx
+"use client";
+
+import { api } from '@/lib/api';
+import { useState, useEffect } from 'react';
+
+export default function ProductsPage() {
+  const [products, setProducts] = useState([]);
+  
+  useEffect(() => {
+    api.products.getAll().then(setProducts);
+  }, []);
+  
+  return (
+    <div>
+      <h1>Products</h1>
+      {/* Your UI */}
+    </div>
+  );
+}
+\end{verbatim}
+
+\textbf{Step 2: Add to sidebar navigation}
+
+\begin{verbatim}
+// components/layout/sidebar/nav-main.tsx
+{
+  title: "Products",
+  href: "/dashboard/erp/products",
+  icon: PackageIcon
+}
+\end{verbatim}
+
+\textbf{Step 3: Add API functions} (if needed)
+
+\begin{verbatim}
+// lib/api.ts
+export const api = {
+  products: {
+    getAll: async () => {
+      const response = await fetch('/api/v1/products');
+      return response.json();
+    }
+  }
+}
+\end{verbatim}
+
+\section{Complete API Routes Reference}
+
+This section documents all available API endpoints in the system. All routes are prefixed with \texttt{/api/v1}.
+
+\subsection{Authentication Routes}
+
+\textbf{Base URL}: \texttt{/api/v1/auth}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\midrule
+POST & \texttt{/register} & Register a new user \\
+POST & \texttt{/login} & Login and get JWT token \\
+GET & \texttt{/me} & Get current user info (requires auth) \\
+\bottomrule
+\end{tabularx}
+\caption{Authentication Endpoints}
+\end{table}
+
+\textbf{Example Request - Login:}
+\begin{lstlisting}[style=python, caption=Login Request]
+POST /api/v1/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+Response:
+{
+  "access_token": "eyJhbGc...",
+  "token_type": "bearer"
+}
+\end{lstlisting}
+
+\subsection{Buyers Routes}
+
+\textbf{Base URL}: \texttt{/api/v1/buyers}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\midrule
+GET & \texttt{/} & Get all buyers (with pagination) \\
+GET & \texttt{/\{buyer\_id\}} & Get specific buyer \\
+POST & \texttt{/} & Create new buyer \\
+PUT & \texttt{/\{buyer\_id\}} & Update buyer \\
+DELETE & \texttt{/\{buyer\_id\}} & Delete buyer \\
+GET & \texttt{/contacts} & Get buyer contacts \\
+POST & \texttt{/contacts} & Create contact person \\
+GET & \texttt{/shipping} & Get shipping info \\
+POST & \texttt{/shipping} & Create shipping info \\
+GET & \texttt{/banking} & Get banking info \\
+POST & \texttt{/banking} & Create banking info \\
+DELETE & \texttt{/banking/\{banking\_id\}} & Delete banking info \\
+\bottomrule
+\end{tabularx}
+\caption{Buyers Endpoints}
+\end{table}
+
+\textbf{Query Parameters for GET /:}
+\begin{itemize}
+    \item \texttt{skip} (int, default: 0) - Number of records to skip
+    \item \texttt{limit} (int, default: 10000, max: 10000) - Max records per request
+\end{itemize}
+
+\subsection{Suppliers Routes}
+
+\textbf{Base URL}: \texttt{/api/v1/suppliers}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\midrule
+GET & \texttt{/} & Get all suppliers \\
+GET & \texttt{/\{supplier\_id\}} & Get specific supplier \\
+POST & \texttt{/} & Create new supplier \\
+PUT & \texttt{/\{supplier\_id\}} & Update supplier \\
+DELETE & \texttt{/\{supplier\_id\}} & Delete supplier \\
+\bottomrule
+\end{tabularx}
+\caption{Suppliers Endpoints}
+\end{table}
+
+\subsection{Contacts Routes}
+
+\textbf{Base URL}: \texttt{/api/v1/contacts}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\midrule
+GET & \texttt{/} & Get all contacts \\
+GET & \texttt{/\{contact\_id\}} & Get specific contact \\
+POST & \texttt{/} & Create new contact \\
+PUT & \texttt{/\{contact\_id\}} & Update contact \\
+DELETE & \texttt{/\{contact\_id\}} & Delete contact \\
+\bottomrule
+\end{tabularx}
+\caption{Contacts Endpoints}
+\end{table}
+
+\subsection{Samples Routes}
+
+\textbf{Base URL}: \texttt{/api/v1/samples}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\midrule
+\multicolumn{3}{l}{\textbf{Style Summaries}} \\
+GET & \texttt{/styles} & Get all styles \\
+GET & \texttt{/styles/\{style\_id\}} & Get specific style \\
+POST & \texttt{/styles} & Create new style \\
+PUT & \texttt{/styles/\{style\_id\}} & Update style \\
+DELETE & \texttt{/styles/\{style\_id\}} & Delete style \\
+\midrule
+\multicolumn{3}{l}{\textbf{Style Variants}} \\
+GET & \texttt{/style-variants} & Get all variants \\
+GET & \texttt{/style-variants/\{variant\_id\}} & Get specific variant \\
+POST & \texttt{/style-variants} & Create new variant \\
+PUT & \texttt{/style-variants/\{variant\_id\}} & Update variant \\
+DELETE & \texttt{/style-variants/\{variant\_id\}} & Delete variant \\
+\midrule
+\multicolumn{3}{l}{\textbf{Required Materials}} \\
+GET & \texttt{/required-materials} & Get all materials \\
+GET & \texttt{/required-materials/\{id\}} & Get specific material \\
+POST & \texttt{/required-materials} & Create new material \\
+PUT & \texttt{/required-materials/\{id\}} & Update material \\
+DELETE & \texttt{/required-materials/\{id\}} & Delete material \\
+\midrule
+\multicolumn{3}{l}{\textbf{Samples}} \\
+GET & \texttt{/} & Get all samples \\
+GET & \texttt{/\{sample\_id\}} & Get specific sample \\
+GET & \texttt{/by-sample-id/\{sample\_id\}} & Get by sample ID string \\
+POST & \texttt{/} & Create new sample \\
+PUT & \texttt{/\{sample\_id\}} & Update sample \\
+\midrule
+\multicolumn{3}{l}{\textbf{Sample Operations}} \\
+GET & \texttt{/operations} & Get operations (filter by sample\_id) \\
+POST & \texttt{/operations} & Create new operation \\
+\midrule
+\multicolumn{3}{l}{\textbf{Sample TNA}} \\
+GET & \texttt{/tna} & Get all TNA records \\
+GET & \texttt{/tna/\{tna\_id\}} & Get specific TNA \\
+POST & \texttt{/tna} & Create new TNA \\
+PUT & \texttt{/tna/\{tna\_id\}} & Update TNA \\
+DELETE & \texttt{/tna/\{tna\_id\}} & Delete TNA \\
+\midrule
+\multicolumn{3}{l}{\textbf{Sample Plan}} \\
+GET & \texttt{/plan} & Get all plan records \\
+GET & \texttt{/plan/\{plan\_id\}} & Get specific plan \\
+POST & \texttt{/plan} & Create new plan \\
+PUT & \texttt{/plan/\{plan\_id\}} & Update plan \\
+DELETE & \texttt{/plan/\{plan\_id\}} & Delete plan \\
+\midrule
+\multicolumn{3}{l}{\textbf{SMV Calculations}} \\
+GET & \texttt{/smv} & Get all SMV calculations \\
+GET & \texttt{/smv/\{smv\_id\}} & Get specific SMV \\
+POST & \texttt{/smv} & Create new SMV calculation \\
+\midrule
+\multicolumn{3}{l}{\textbf{Operation Types}} \\
+GET & \texttt{/operation-types} & Get all operation types \\
+GET & \texttt{/operation-types/\{id\}} & Get specific type \\
+POST & \texttt{/operation-types} & Create new type \\
+PUT & \texttt{/operation-types/\{id\}} & Update type \\
+DELETE & \texttt{/operation-types/\{id\}} & Delete type \\
+\bottomrule
+\end{tabularx}
+\caption{Samples Endpoints}
+\end{table}
+
+\subsection{Orders Routes}
+
+\textbf{Base URL}: \texttt{/api/v1/orders}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\midrule
+GET & \texttt{/} & Get all orders (with filters) \\
+GET & \texttt{/\{order\_id\}} & Get specific order \\
+POST & \texttt{/} & Create new order \\
+PUT & \texttt{/\{order\_id\}} & Update order \\
+DELETE & \texttt{/\{order\_id\}} & Delete order \\
+\bottomrule
+\end{tabularx}
+\caption{Orders Endpoints}
+\end{table}
+
+\textbf{Query Parameters for GET /:}
+\begin{itemize}
+    \item \texttt{buyer\_id} (int, optional) - Filter by buyer
+    \item \texttt{order\_status} (string, optional) - Filter by status
+    \item \texttt{skip} (int, default: 0) - Pagination offset
+    \item \texttt{limit} (int, default: 10000) - Max records
+\end{itemize}
+
+\subsection{Materials Routes}
+
+\textbf{Base URL}: \texttt{/api/v1/materials}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\midrule
+GET & \texttt{/} & Get all materials \\
+GET & \texttt{/\{material\_id\}} & Get specific material \\
+POST & \texttt{/} & Create new material \\
+PUT & \texttt{/\{material\_id\}} & Update material \\
+DELETE & \texttt{/\{material\_id\}} & Delete material \\
+\bottomrule
+\end{tabularx}
+\caption{Materials Endpoints}
+\end{table}
+
+\subsection{Users Routes}
+
+\textbf{Base URL}: \texttt{/api/v1/users}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\midrule
+GET & \texttt{/} & Get all users \\
+GET & \texttt{/\{user\_id\}} & Get specific user \\
+POST & \texttt{/} & Create new user (Admin only) \\
+PUT & \texttt{/\{user\_id\}} & Update user \\
+DELETE & \texttt{/\{user\_id\}} & Delete user (cannot delete superuser) \\
+\bottomrule
+\end{tabularx}
+\caption{Users Endpoints}
+\end{table}
+
+\subsection{Operations Routes}
+
+\textbf{Base URL}: \texttt{/api/v1/operations}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\midrule
+GET & \texttt{/} & Get all operations \\
+GET & \texttt{/smv-settings} & Get SMV settings \\
+\bottomrule
+\end{tabularx}
+\caption{Operations Endpoints}
+\end{table}
+
+\subsection{Master Data Routes}
+
+\textbf{Base URL}: \texttt{/api/v1/master}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\midrule
+\multicolumn{3}{l}{\textbf{Garment Colors}} \\
+GET & \texttt{/colors} & Get all colors (with filters) \\
+GET & \texttt{/colors/\{color\_id\}} & Get specific color \\
+POST & \texttt{/colors} & Create new color \\
+PUT & \texttt{/colors/\{color\_id\}} & Update color \\
+DELETE & \texttt{/colors/\{color\_id\}} & Delete color \\
+\midrule
+\multicolumn{3}{l}{\textbf{Garment Sizes}} \\
+GET & \texttt{/sizes} & Get all sizes (with filters) \\
+GET & \texttt{/sizes/\{size\_id\}} & Get specific size \\
+POST & \texttt{/sizes} & Create new size \\
+PUT & \texttt{/sizes/\{size\_id\}} & Update size \\
+DELETE & \texttt{/sizes/\{size\_id\}} & Delete size \\
+\midrule
+\multicolumn{3}{l}{\textbf{Seed Data}} \\
+POST & \texttt{/seed-defaults} & Seed default colors and sizes \\
+\bottomrule
+\end{tabularx}
+\caption{Master Data Endpoints}
+\end{table}
+
+\textbf{Query Parameters for GET /colors and GET /sizes:}
+\begin{itemize}
+    \item \texttt{category} (string, optional) - Filter by category
+    \item \texttt{is\_active} (boolean, optional) - Filter by active status
+    \item \texttt{skip} (int, default: 0) - Pagination offset
+    \item \texttt{limit} (int, default: 1000) - Max records
+\end{itemize}
+
+\subsection{Health Check Routes}
+
+\textbf{Base URL}: \texttt{/api/v1}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Description} \\
+\midrule
+GET & \texttt{/health} & Health check (database connection) \\
+GET & \texttt{/ready} & Readiness check \\
+\bottomrule
+\end{tabularx}
+\caption{Health Check Endpoints}
+\end{table}
+
+\subsection{API Response Format}
+
+All API responses follow a consistent format:
+
+\textbf{Success Response:}
+\begin{lstlisting}[style=python, caption=Success Response]
+{
+  "id": 1,
+  "buyer_name": "ABC Corporation",
+  "company_name": "ABC Corp",
+  ...
+}
+\end{lstlisting}
+
+\textbf{Error Response:}
+\begin{lstlisting}[style=python, caption=Error Response]
+{
+  "detail": "Error message here"
+}
+\end{lstlisting}
+
+\textbf{Common HTTP Status Codes:}
+\begin{itemize}
+    \item \texttt{200 OK} - Request successful
+    \item \texttt{201 Created} - Resource created successfully
+    \item \texttt{204 No Content} - Delete successful (no body)
+    \item \texttt{400 Bad Request} - Invalid request data
+    \item \texttt{401 Unauthorized} - Authentication required
+    \item \texttt{403 Forbidden} - Insufficient permissions
+    \item \texttt{404 Not Found} - Resource not found
+    \item \texttt{422 Unprocessable Entity} - Validation error
+    \item \texttt{500 Internal Server Error} - Server error
+    \item \texttt{503 Service Unavailable} - Service temporarily unavailable
+\end{itemize}
+
+\subsection{Authentication in API Requests}
+
+Most endpoints require authentication. Include the JWT token in the request header:
+
+\begin{lstlisting}[style=python, caption=Authenticated Request]
+GET /api/v1/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+\end{lstlisting}
+
+\section{Authentication \& Authorization}
+
+\subsection{Authentication Flow}
+
+\begin{enumerate}
+    \item \textbf{User enters credentials} $\rightarrow$ Login page
+    \item \textbf{Frontend calls} $\rightarrow$ \texttt{POST /api/v1/auth/login}
+    \item \textbf{Backend validates} $\rightarrow$ Checks username/password
+    \item \textbf{JWT token created} $\rightarrow$ Contains user ID and username
+    \item \textbf{Token returned} $\rightarrow$ Frontend receives \texttt{\{ access\_token: "..." \}}
+    \item \textbf{Token stored}:
+    \begin{itemize}
+        \item \texttt{localStorage.setItem("token", token)} -- For API calls
+        \item \texttt{setCookie("auth\_token", token)} -- For middleware
+        \item \texttt{setUser(userData)} -- User info in context
+    \end{itemize}
+    \item \textbf{Protected routes} $\rightarrow$ Middleware checks cookie
+    \item \textbf{API calls} $\rightarrow$ Include \texttt{Authorization: Bearer <token>} header
+\end{enumerate}
+
+\subsection{JWT Token Structure}
+
+\begin{lstlisting}[style=python, caption=JWT Token Payload]
+{
+  "sub": "username",
+  "user_id": 1,
+  "exp": 1234567890  // Expiration timestamp
+}
+\end{lstlisting}
+
+\textbf{Token expires}: 7 days (configurable in \texttt{backend/core/config.py})
+
+\subsection{Authorization (Permissions)}
+
+\textbf{User Model Fields}:
+\begin{itemize}
+    \item \texttt{is\_superuser} -- Full access to everything
+    \item \texttt{department\_access} -- JSON array of allowed departments
+\end{itemize}
+
+\textbf{Department IDs}:
+\begin{itemize}
+    \item \texttt{"client\_info"} -- Access to Client Info section
+    \item \texttt{"sample\_department"} -- Access to Sample Department
+    \item \texttt{"orders"} -- Access to Order Info
+\end{itemize}
+
+\subsection{Protecting Routes}
+
+\textbf{Frontend}: Middleware automatically redirects unauthenticated users
+
+\textbf{Backend}: Add dependency to check token:
+
+\begin{lstlisting}[style=python, caption=Protecting Backend Routes]
+from fastapi import Depends, HTTPException, Header
+from core.security import decode_token
+
+def get_current_user(authorization: str = Header(None)):
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(401, "Not authenticated")
+    
+    token = authorization.replace("Bearer ", "")
+    payload = decode_token(token)
+    if not payload:
+        raise HTTPException(401, "Invalid token")
+    
+    return payload
+
+@router.get("/protected")
+def protected_route(user = Depends(get_current_user)):
+    return {"message": "You are authenticated"}
+\end{lstlisting}
+
+\section{Where to Edit/Add Features}
+
+\subsection{Adding a New Database Table}
+
+\begin{enumerate}
+    \item \textbf{Create model} $\rightarrow$ \texttt{backend/modules/[module]/models/[model].py}
+    \begin{lstlisting}[style=python]
+class NewTable(Base):
+    __tablename__ = "new_table"
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    \end{lstlisting}
+    
+    \item \textbf{Import in database init} $\rightarrow$ Models are auto-discovered if imported
+    \item \textbf{Tables auto-created} $\rightarrow$ On startup, \texttt{init\_db()} creates all tables
+\end{enumerate}
+
+\subsection{Adding a New API Endpoint}
+
+\begin{enumerate}
+    \item \textbf{Add route function} $\rightarrow$ \texttt{backend/modules/[module]/routes/[routes].py}
+    \begin{lstlisting}[style=python]
+@router.get("/new-endpoint")
+def get_new_data(db: Session = Depends(get_db)):
+    return {"data": "value"}
+    \end{lstlisting}
+    
+    \item \textbf{Router already registered} $\rightarrow$ If module router is in \texttt{main.py}, endpoint is available
+\end{enumerate}
+
+\subsection{Adding a New Frontend Page}
+
+\begin{enumerate}
+    \item \textbf{Create page} $\to$ \texttt{frontend/app/dashboard/}\\
+    \texttt{(authenticated)/erp/[section]/page.tsx}
+    \item \textbf{Add to sidebar} $\to$ \texttt{frontend/components/layout/}\\
+    \texttt{sidebar/nav-main.tsx}
+    \item \textbf{Add API functions} $\to$ \texttt{frontend/lib/api.ts} (if needed)
+\end{enumerate}
+
+\subsection{Adding a New Field to Existing Table}
+
+\begin{enumerate}
+    \item \textbf{Update model} $\to$ \texttt{backend/modules/[module]/}\\
+    \texttt{models/[model].py}
+    \begin{lstlisting}[style=python]
+new_field = Column(String, nullable=True)
+    \end{lstlisting}
+    
+    \item \textbf{Update schema} $\to$ \texttt{backend/modules/[module]/}\\
+    \texttt{schemas/[schema].py}
+    \begin{lstlisting}[style=python]
+new_field: Optional[str] = None
+    \end{lstlisting}
+    
+    \item \textbf{Database migration} $\to$ Tables auto-update on restart (SQLAlchemy)
+    \begin{itemize}
+        \item \textbf{Note}: For production, use Alembic migrations (not currently set up)
+    \end{itemize}
+\end{enumerate}
+
+\section{Development Setup}
+
+\subsection{Prerequisites}
+
+\begin{itemize}
+    \item Docker \& Docker Compose
+    \item Node.js 18+ (for local frontend dev)
+    \item Python 3.11+ (for local backend dev)
+\end{itemize}
+
+\subsection{Running with Docker (Recommended)}
+
+\textbf{Step 1: Start all services}
+
+\begin{lstlisting}[style=python, caption=Starting Docker Services]
+docker-compose up -d
+\end{lstlisting}
+
+\textbf{Step 2: Services available}
+\begin{itemize}
+    \item Frontend: \url{http://localhost:3000}
+    \item Backend API: \url{http://localhost:8000}
+    \item Backend Docs: \url{http://localhost:8000/docs}
+    \item PostgreSQL: \texttt{localhost:5432}
+\end{itemize}
+
+\textbf{Step 3: View logs}
+
+\begin{lstlisting}[style=python]
+docker-compose logs -f backend
+docker-compose logs -f frontend
+\end{lstlisting}
+
+\textbf{Step 4: Stop services}
+
+\begin{lstlisting}[style=python]
+docker-compose down
+\end{lstlisting}
+
+\subsection{Default Login Credentials}
+
+\begin{itemize}
+    \item \textbf{Username}: \texttt{admin}
+    \item \textbf{Password}: \texttt{admin}
+\end{itemize}
+
+\textbf{Location}: Created by \texttt{backend/init\_data.py} on first startup
+
+\subsection{Database Access}
+
+\textbf{With Docker}:
+\begin{lstlisting}[style=python]
+docker exec -it erp_postgres psql -U postgres -d rmg_erp
+\end{lstlisting}
+
+\section{Common Tasks Guide}
+
+\subsection{Task 1: Add a New Buyer Field}
+
+\textbf{Step 1}: Update database model
+
+\begin{lstlisting}[style=python, caption=Updating Buyer Model]
+# backend/modules/clients/models/client.py
+class Buyer(Base):
+    # ... existing fields
+    new_field = Column(String, nullable=True)  # Add this
+\end{lstlisting}
+
+\textbf{Step 2}: Update schema
+
+\begin{lstlisting}[style=python, caption=Updating Buyer Schema]
+# backend/modules/clients/schemas/buyer.py
+class BuyerCreate(BaseModel):
+    # ... existing fields
+    new_field: Optional[str] = None  # Add this
+\end{lstlisting}
+
+\textbf{Step 3}: Update frontend form
+
+\begin{lstlisting}[style=typescript, caption=Updating Frontend Form]
+// In buyers page component
+<Input
+  label="New Field"
+  value={formData.new_field}
+  onChange={(e) => setFormData({...formData, new_field: e.target.value})}
+/>
+\end{lstlisting}
+
+\textbf{Step 4}: Restart backend (tables auto-update)
+
+\subsection{Task 2: Create a New Module (e.g., "Products")}
+
+\textbf{Backend Steps}:
+
+\begin{enumerate}
+    \item Create folder structure:
+    \begin{verbatim}
+backend/modules/products/
++-- __init__.py
++-- models/
+|   +-- product.py
++-- routes/
+|   +-- products.py
++-- schemas/
+    +-- product.py
+    \end{verbatim}
+    
+    \item Create model, schema, routes (see examples in previous sections)
+    \item Register in \texttt{main.py}
+\end{enumerate}
+
+\textbf{Frontend Steps}:
+
+\begin{enumerate}
+    \item Add API functions to \texttt{lib/api.ts}
+    \item Create page in \texttt{app/dashboard/(authenticated)/erp/products/page.tsx}
+    \item Add to sidebar in \texttt{components/layout/sidebar/nav-main.tsx}
+\end{enumerate}
+
+\subsection{Task 3: Add Validation to API Endpoint}
+
+\begin{lstlisting}[style=python, caption=Adding Validation]
+from pydantic import BaseModel, validator
+
+class BuyerCreate(BaseModel):
+    buyer_name: str
+    email: str
+    
+    @validator('email')
+    def validate_email(cls, v):
+        if '@' not in v:
+            raise ValueError('Invalid email')
+        return v
+\end{lstlisting}
+
+\subsection{Task 4: Add Caching to Endpoint}
+
+\begin{lstlisting}[style=python, caption=Adding Caching]
+from core.cache import cache_response, CacheTTL
+
+@router.get("/buyers")
+@cache_response(key_prefix="buyers", ttl=CacheTTL.LOOKUP_DATA)
+def get_buyers(db: Session = Depends(get_db)):
+    return db.query(Buyer).all()
+\end{lstlisting}
+
+\section{Quick Reference}
+
+\subsection{Backend File Locations}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{What} & \textbf{Where} \\
+\midrule
+Database models & \texttt{backend/modules/*/models/*.py} \\
+API routes & \texttt{backend/modules/*/routes/*.py} \\
+Data schemas & \texttt{backend/modules/*/schemas/*.py} \\
+Database config & \texttt{backend/core/database.py} \\
+Auth logic & \texttt{backend/core/security.py} \\
+Settings & \texttt{backend/core/config.py} \\
+Main app & \texttt{backend/main.py} \\
+\bottomrule
+\end{tabularx}
+\caption{Backend File Locations}
+\end{table}
+
+\subsection{Frontend File Locations}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{What} & \textbf{Where} \\
+\midrule
+Pages & \texttt{frontend/app/dashboard/(authenticated)/erp/*/page.tsx} \\
+API client & \texttt{frontend/lib/api.ts} \\
+Auth context & \texttt{frontend/lib/auth-context.tsx} \\
+Components & \texttt{frontend/components/} \\
+Sidebar nav & \texttt{frontend/components/layout/sidebar/nav-main.tsx} \\
+Middleware & \texttt{frontend/middleware.ts} \\
+API proxy & \texttt{frontend/app/api/v1/[...path]/route.ts} \\
+\bottomrule
+\end{tabularx}
+\caption{Frontend File Locations}
+\end{table}
+
+\subsection{Common URLs}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Service} & \textbf{URL} \\
+\midrule
+Frontend & \url{http://localhost:3000} \\
+Backend API & \url{http://localhost:8000} \\
+API Docs & \url{http://localhost:8000/docs} \\
+Login & \url{http://localhost:3000/dashboard/login} \\
+Dashboard & \url{http://localhost:3000/dashboard/erp} \\
+\bottomrule
+\end{tabularx}
+\caption{Common URLs}
+\end{table}
+
+\section{Troubleshooting}
+
+\subsection{Common Issues}
+
+\begin{itemize}
+    \item \textbf{Backend won't start}
+    \begin{itemize}
+        \item Check PostgreSQL is running
+        \item Check database credentials in \texttt{config.py}
+        \item Check logs: \texttt{docker-compose logs backend}
+    \end{itemize}
+    
+    \item \textbf{Frontend can't connect to backend}
+    \begin{itemize}
+        \item Check \texttt{BACKEND\_URL} environment variable
+        \item Check backend is running on port 8000
+        \item Check CORS settings in \texttt{main.py}
+    \end{itemize}
+    
+    \item \textbf{Database connection errors}
+    \begin{itemize}
+        \item Verify PostgreSQL is running
+        \item Check connection string in \texttt{config.py}
+        \item Check network in Docker: \texttt{docker network ls}
+    \end{itemize}
+    
+    \item \textbf{Authentication not working}
+    \begin{itemize}
+        \item Check token in browser DevTools $\rightarrow$ Application $\rightarrow$ Cookies
+        \item Check \texttt{SECRET\_KEY} matches in backend
+        \item Clear cookies and login again
+    \end{itemize}
+    
+    \item \textbf{Tables not created}
+    \begin{itemize}
+        \item Check \texttt{init\_db()} is called in \texttt{main.py}
+        \item Check models are imported
+        \item Check database user has CREATE TABLE permission
+    \end{itemize}
+\end{itemize}
+
+\section{Next Steps}
+
+\begin{enumerate}
+    \item \textbf{Read the code}: Start with \texttt{backend/main.py} and \texttt{frontend/app/layout.tsx}
+    \item \textbf{Explore a module}: Pick one (e.g., buyers) and trace the flow
+    \item \textbf{Make a small change}: Add a field or modify UI
+    \item \textbf{Check API docs}: Visit \url{http://localhost:8000/docs}
+    \item \textbf{Read FastAPI docs}: \url{https://fastapi.tiangolo.com}
+    \item \textbf{Read Next.js docs}: \url{https://nextjs.org/docs}
+\end{enumerate}
+
+\vspace{1cm}
+
+\begin{center}
+\textit{Last Updated}: \today \\
+\textit{Version}: 1.0.0
+\end{center}
+
+\end{document}
+
